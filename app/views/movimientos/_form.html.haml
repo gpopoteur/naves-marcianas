@@ -1,0 +1,23 @@
+= form_for(@movimiento) do |f|
+  - if @movimiento.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@movimiento.errors.count, "error")
+        prohibited this movimiento from being saved:
+      %ul
+        - @movimiento.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :tipo_movimiento
+    %br/
+    = f.number_field :tipo_movimiento
+  .field
+    = f.label :pasajero_id
+    %br/
+    = f.number_field :pasajero_id
+  .field
+    = f.label :aeronave_id
+    %br/
+    = f.number_field :aeronave_id
+  .actions
+    = f.submit

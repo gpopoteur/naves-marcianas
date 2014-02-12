@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %strong Nombre:
+  = @nave_nodriza.nombre
+= link_to 'Edit', edit_nave_nodriza_path(@nave_nodriza)
+|
+\#{link_to 'Back', nave_nodrizas_path}
