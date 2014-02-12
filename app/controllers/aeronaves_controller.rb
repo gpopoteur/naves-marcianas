@@ -69,6 +69,6 @@ class AeronavesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aeronafe_params
-      params.require(:aeronafe).permit(:nombre, :max_marcianos, :nave_origen, :nave_destino)
+      params.require(:aeronave).permit(:nombre, :max_marcianos, :nave_origen, :nave_destino)
     end
 end
