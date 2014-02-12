@@ -1,0 +1,29 @@
+<h1>Listing revision_pasajeros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Revision</th>
+      <th>Pasajero</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @revision_pasajeros.each do |revision_pasajero| %>
+      <tr>
+        <td><%= revision_pasajero.revision_id %></td>
+        <td><%= revision_pasajero.pasajero_id %></td>
+        <td><%= link_to 'Show', revision_pasajero %></td>
+        <td><%= link_to 'Edit', edit_revision_pasajero_path(revision_pasajero) %></td>
+        <td><%= link_to 'Destroy', revision_pasajero, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Revision pasajero', new_revision_pasajero_path %>
