@@ -18,8 +18,9 @@
             %td= aeronafe.max_marcianos
             %td= aeronafe.origen.nombre
             %td= aeronafe.destino.nombre
-            %td= link_to 'Show', aeronafe, class: "btn btn-info"
-            %td= link_to 'Edit', edit_aeronafe_path(aeronafe), class: "btn btn-warning"
-            %td= link_to 'Destroy', aeronafe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+            %td
+              = link_to 'Show', aeronafe, class: "btn btn-info"
+              = link_to 'Edit', edit_aeronafe_path(aeronafe), class: "btn btn-warning"
+              = link_to 'Destroy', aeronafe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
     %br/
     = link_to 'New Aeronave', new_aeronafe_path, class: "btn btn-primary"
