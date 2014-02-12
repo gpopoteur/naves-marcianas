@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo movimiento:</strong>
+  <%= @movimiento.tipo_movimiento %>
+</p>
+
+<p>
+  <strong>Pasajero:</strong>
+  <%= @movimiento.pasajero_id %>
+</p>
+
+<p>
+  <strong>Aeronave:</strong>
+  <%= @movimiento.aeronave_id %>
+</p>
+
+<%= link_to 'Edit', edit_movimiento_path(@movimiento) %> |
+<%= link_to 'Back', movimientos_path %>

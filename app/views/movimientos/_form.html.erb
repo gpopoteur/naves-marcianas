@@ -1,0 +1,29 @@
+<%= form_for(@movimiento) do |f| %>
+  <% if @movimiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movimiento.errors.count, "error") %> prohibited this movimiento from being saved:</h2>
+
+      <ul>
+      <% @movimiento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo_movimiento %><br>
+    <%= f.number_field :tipo_movimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :pasajero_id %><br>
+    <%= f.number_field :pasajero_id %>
+  </div>
+  <div class="field">
+    <%= f.label :aeronave_id %><br>
+    <%= f.number_field :aeronave_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

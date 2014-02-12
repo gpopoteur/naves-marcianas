@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_movimiento: 1
+  pasajero_id: 1
+  aeronave_id: 1
+
+two:
+  tipo_movimiento: 1
+  pasajero_id: 1
+  aeronave_id: 1

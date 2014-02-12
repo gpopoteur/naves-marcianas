@@ -1,0 +1,33 @@
+<h1>Listing aeronaves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Max marcianos</th>
+      <th>Nave origen</th>
+      <th>Nave destino</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aeronaves.each do |aeronafe| %>
+      <tr>
+        <td><%= aeronafe.nombre %></td>
+        <td><%= aeronafe.max_marcianos %></td>
+        <td><%= aeronafe.nave_origen %></td>
+        <td><%= aeronafe.nave_destino %></td>
+        <td><%= link_to 'Show', aeronafe %></td>
+        <td><%= link_to 'Edit', edit_aeronafe_path(aeronafe) %></td>
+        <td><%= link_to 'Destroy', aeronafe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aeronave', new_aeronafe_path %>

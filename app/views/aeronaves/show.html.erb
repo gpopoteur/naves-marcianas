@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @aeronafe.nombre %>
+</p>
+
+<p>
+  <strong>Max marcianos:</strong>
+  <%= @aeronafe.max_marcianos %>
+</p>
+
+<p>
+  <strong>Nave origen:</strong>
+  <%= @aeronafe.nave_origen %>
+</p>
+
+<p>
+  <strong>Nave destino:</strong>
+  <%= @aeronafe.nave_destino %>
+</p>
+
+<%= link_to 'Edit', edit_aeronafe_path(@aeronafe) %> |
+<%= link_to 'Back', aeronaves_path %>

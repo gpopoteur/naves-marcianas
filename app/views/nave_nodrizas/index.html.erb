@@ -1,0 +1,27 @@
+<h1>Listing nave_nodrizas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nave_nodrizas.each do |nave_nodriza| %>
+      <tr>
+        <td><%= nave_nodriza.nombre %></td>
+        <td><%= link_to 'Show', nave_nodriza %></td>
+        <td><%= link_to 'Edit', edit_nave_nodriza_path(nave_nodriza) %></td>
+        <td><%= link_to 'Destroy', nave_nodriza, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nave nodriza', new_nave_nodriza_path %>
