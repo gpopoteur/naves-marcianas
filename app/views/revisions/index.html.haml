@@ -1,0 +1,20 @@
+%h1 Todas las Revisiones
+%table.table.table-striped
+  %thead
+    %tr
+      %th Revisior
+      %th Aeronave
+      %th
+      %th
+      %th
+  %tbody
+    - @revisions.each do |revision|
+      %tr
+        %td= revision.revisior
+        %td= revision.aeronave_id
+        %td
+          = link_to 'Show', revision
+          = link_to 'Edit', edit_revision_path(revision)
+          = link_to 'Destroy', revision, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Revision', new_revision_path, class: 'btn btn-primary'

@@ -18,10 +18,10 @@
   .field
     = f.label :nave_origen
     %br/
-    = f.number_field :nave_origen
+    = f.collection_select :nave_origen, NaveNodriza.all, :id, :nombre
   .field
     = f.label :nave_destino
     %br/
-    = f.number_field :nave_destino
+    = f.collection_select :nave_destino, NaveNodriza.all, :id, :nombre
   .actions
     = f.submit

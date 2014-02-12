@@ -14,10 +14,10 @@
   .field
     = f.label :pasajero_id
     %br/
-    = f.number_field :pasajero_id
+    = f.collection_select :pasajero_id, Pasajero.all, :id, :nombre
   .field
     = f.label :aeronave_id
     %br/
-    = f.number_field :aeronave_id
+    = f.collection_select :aeronave_id, Aeronave.all, :id, :nombre
   .actions
     = f.submit

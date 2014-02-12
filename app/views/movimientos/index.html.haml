@@ -1,5 +1,5 @@
-%h1 Listing movimientos
-%table
+%h1 Todos los Movimientos
+%table.table.table-striped
   %thead
     %tr
       %th Tipo movimiento
@@ -12,10 +12,11 @@
     - @movimientos.each do |movimiento|
       %tr
         %td= movimiento.tipo_movimiento
-        %td= movimiento.pasajero_id
+        %td= movimiento.pasajero.nombre
         %td= movimiento.aeronave_id
-        %td= link_to 'Show', movimiento
-        %td= link_to 'Edit', edit_movimiento_path(movimiento)
-        %td= link_to 'Destroy', movimiento, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to 'Show', movimiento
+          = link_to 'Edit', edit_movimiento_path(movimiento)
+          = link_to 'Destroy', movimiento, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Movimiento', new_movimiento_path
+= link_to 'New Movimiento', new_movimiento_path, class: 'btn btn-primary'

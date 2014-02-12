@@ -1,0 +1,19 @@
+= form_for(@revision_pasajero) do |f|
+  - if @revision_pasajero.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@revision_pasajero.errors.count, "error")
+        prohibited this revision_pasajero from being saved:
+      %ul
+        - @revision_pasajero.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :revision_id
+    %br/
+    = f.number_field :revision_id
+  .field
+    = f.label :pasajero_id
+    %br/
+    = f.number_field :pasajero_id
+  .actions
+    = f.submit

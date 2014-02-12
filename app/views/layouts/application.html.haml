@@ -6,6 +6,28 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
+    %nav.navbar.navbar-default.navbar-static-top
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-toggle" => "collapse",'data-target' => "#bs-example-navbar-collapse-1"}
+            %span.sr-only
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand Transporte Marciano
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'Nave Nodrizas', nave_nodrizas_path
+            %li
+              = link_to 'Aeronaves', aeronaves_path
+            %li
+              = link_to 'Pasajeros', pasajeros_path
+            %li
+              = link_to 'Movimientos', movimientos_path
+            %li
+              = link_to 'Revisión', revisions_path
+
     .container
       .row
         .col-md-12

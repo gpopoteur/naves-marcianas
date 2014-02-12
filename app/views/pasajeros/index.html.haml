@@ -1,5 +1,5 @@
-%h1 Listing pasajeros
-%table
+%h1 Todos Los Pasajeros
+%table.table.table-striped
   %thead
     %tr
       %th Nombre
@@ -10,8 +10,9 @@
     - @pasajeros.each do |pasajero|
       %tr
         %td= pasajero.nombre
-        %td= link_to 'Show', pasajero
-        %td= link_to 'Edit', edit_pasajero_path(pasajero)
-        %td= link_to 'Destroy', pasajero, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to 'Show', pasajero
+          = link_to 'Edit', edit_pasajero_path(pasajero)
+          = link_to 'Destroy', pasajero, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Pasajero', new_pasajero_path
+= link_to 'New Pasajero', new_pasajero_path, class: 'btn btn-primary'

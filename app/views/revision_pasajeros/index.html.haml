@@ -1,0 +1,19 @@
+%h1 Listing revision_pasajeros
+%table
+  %thead
+    %tr
+      %th Revision
+      %th Pasajero
+      %th
+      %th
+      %th
+  %tbody
+    - @revision_pasajeros.each do |revision_pasajero|
+      %tr
+        %td= revision_pasajero.revision_id
+        %td= revision_pasajero.pasajero_id
+        %td= link_to 'Show', revision_pasajero
+        %td= link_to 'Edit', edit_revision_pasajero_path(revision_pasajero)
+        %td= link_to 'Destroy', revision_pasajero, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Revision pasajero', new_revision_pasajero_path

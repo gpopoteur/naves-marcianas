@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Revision:
+  = @revision_pasajero.revision_id
+%p
+  %strong Pasajero:
+  = @revision_pasajero.pasajero_id
+= link_to 'Edit', edit_revision_pasajero_path(@revision_pasajero)
+|
+\#{link_to 'Back', revision_pasajeros_path}
