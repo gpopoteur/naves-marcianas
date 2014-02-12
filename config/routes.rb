@@ -1,4 +1,8 @@
 NavesMarcianas::Application.routes.draw do
+  resources :revision_pasajeros
+
+  resources :revisions
+
   resources :movimientos
 
   resources :pasajeros
