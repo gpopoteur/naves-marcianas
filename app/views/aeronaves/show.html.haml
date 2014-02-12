@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Nombre:
+  = @aeronafe.nombre
+%p
+  %strong Max marcianos:
+  = @aeronafe.max_marcianos
+%p
+  %strong Nave origen:
+  = @aeronafe.nave_origen
+%p
+  %strong Nave destino:
+  = @aeronafe.nave_destino
+= link_to 'Edit', edit_aeronafe_path(@aeronafe)
+|
+\#{link_to 'Back', aeronaves_path}

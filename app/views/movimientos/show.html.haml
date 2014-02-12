@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Tipo movimiento:
+  = @movimiento.tipo_movimiento
+%p
+  %strong Pasajero:
+  = @movimiento.pasajero_id
+%p
+  %strong Aeronave:
+  = @movimiento.aeronave_id
+= link_to 'Edit', edit_movimiento_path(@movimiento)
+|
+\#{link_to 'Back', movimientos_path}
