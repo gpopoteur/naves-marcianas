@@ -1,6 +1,6 @@
 = form_for(@pasajero) do |f|
   - if @pasajero.errors.any?
-    #error_explanation
+    #error_explanation.alert.alert-danger
       %h2
         = pluralize(@pasajero.errors.count, "error")
         prohibited this pasajero from being saved:

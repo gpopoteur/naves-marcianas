@@ -15,7 +15,6 @@ class AeronavesController < ApplicationController
   # GET /aeronaves/new
   def new
     @aeronafe = Aeronave.new
-    @nave_nodrizas = NaveNodriza.all
   end
 
   # GET /aeronaves/1/edit

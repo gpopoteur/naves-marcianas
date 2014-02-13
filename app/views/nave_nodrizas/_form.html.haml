@@ -1,6 +1,6 @@
 = form_for(@nave_nodriza) do |f|
   - if @nave_nodriza.errors.any?
-    #error_explanation
+    #error_explanation.alert.alert-danger
       %h2
         = pluralize(@nave_nodriza.errors.count, "error")
         prohibited this nave_nodriza from being saved:

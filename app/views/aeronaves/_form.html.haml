@@ -1,6 +1,6 @@
 = form_for(@aeronafe) do |f|
   - if @aeronafe.errors.any?
-    #error_explanation
+    #error_explanation.alert.alert-danger
       %h2
         = pluralize(@aeronafe.errors.count, "error")
         prohibited this aeronafe from being saved:
@@ -18,10 +18,10 @@
   .field
     = f.label :nave_origen
     %br/
-    = f.collection_select :nave_origen, @nave_nodrizas, :id, :nombre, {}, {:class=>'form-control'}
+    = f.collection_select :nave_origen, NaveNodriza.all, :id, :nombre, {}, {:class=>'form-control'}
   .field
     = f.label :nave_destino
     %br/
-    = f.collection_select :nave_destino, @nave_nodrizas, :id, :nombre, {}, {:class=>'form-control'}
+    = f.collection_select :nave_destino, NaveNodriza.all, :id, :nombre, {}, {:class=>'form-control'}
   .actions
     = f.submit 'Create', class: 'btn btn-primary'

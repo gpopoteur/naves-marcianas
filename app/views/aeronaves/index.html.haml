@@ -8,6 +8,7 @@
           %th Max marcianos
           %th Nave origen
           %th Nave destino
+          %th Tipo Viaje
           %th
           %th
           %th
@@ -18,6 +19,7 @@
             %td= aeronafe.max_marcianos
             %td= aeronafe.origen.nombre
             %td= aeronafe.destino.nombre
+            %td= raw(aeronafe.nave_origen == aeronafe.nave_destino ? "<span class='label label-success'>Turista</span>" : "<span class='label label-default'>Normal</span>")
             %td
               = link_to 'Show', aeronafe, class: "btn btn-info"
               = link_to 'Edit', edit_aeronafe_path(aeronafe), class: "btn btn-warning"

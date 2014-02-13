@@ -1,6 +1,6 @@
 = form_for(@revision) do |f|
   - if @revision.errors.any?
-    #error_explanation
+    #error_explanation.alert.alert-danger
       %h2
         = pluralize(@revision.errors.count, "error")
         prohibited this revision from being saved:
