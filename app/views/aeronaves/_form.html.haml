@@ -10,18 +10,18 @@
   .field
     = f.label :nombre
     %br/
-    = f.text_field :nombre
+    = f.text_field :nombre, class: 'form-control' 
   .field
     = f.label :max_marcianos
     %br/
-    = f.number_field :max_marcianos
+    = f.number_field :max_marcianos, class: 'form-control' 
   .field
     = f.label :nave_origen
     %br/
-    = f.collection_select :nave_origen, NaveNodriza.all, :id, :nombre
+    = f.collection_select :nave_origen, @nave_nodrizas, :id, :nombre, {}, {:class=>'form-control'}
   .field
     = f.label :nave_destino
     %br/
-    = f.collection_select :nave_destino, NaveNodriza.all, :id, :nombre
+    = f.collection_select :nave_destino, @nave_nodrizas, :id, :nombre, {}, {:class=>'form-control'}
   .actions
-    = f.submit
+    = f.submit 'Create', class: 'btn btn-primary'

@@ -10,10 +10,10 @@
   .field
     = f.label :revisior
     %br/
-    = f.text_field :revisior
+    = f.text_field :revisior, class: 'form-control'
   .field
     = f.label :aeronave_id
     %br/
-    = f.collection_select :aeronave_id, Aeronave.all, :id, :nombre
+    = f.collection_select :aeronave_id, Aeronave.all, :id, :nombre, {}, {:class=>'form-control'}
   .actions
-    = f.submit
+    = f.submit 'Create', class: 'btn btn-primary'

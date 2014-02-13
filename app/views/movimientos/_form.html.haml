@@ -10,14 +10,14 @@
   .field
     = f.label :tipo_movimiento
     %br/
-    = f.number_field :tipo_movimiento
+    = f.number_field :tipo_movimiento, class: 'form-control'
   .field
     = f.label :pasajero_id
     %br/
-    = f.collection_select :pasajero_id, Pasajero.all, :id, :nombre
+    = f.collection_select :pasajero_id, Pasajero.all, :id, :nombre, {}, {:class=>'form-control'}
   .field
     = f.label :aeronave_id
     %br/
-    = f.collection_select :aeronave_id, Aeronave.all, :id, :nombre
+    = f.collection_select :aeronave_id, Aeronave.all, :id, :nombre, {}, {:class=>'form-control'}
   .actions
-    = f.submit
+    = f.submit 'Create', class: 'btn btn-primary'
