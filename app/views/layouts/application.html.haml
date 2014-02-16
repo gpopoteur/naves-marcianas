@@ -31,4 +31,7 @@
     .container
       .row
         .col-md-12
+          - if notice 
+            %p.alert.alert-success= notice
+
           = yield

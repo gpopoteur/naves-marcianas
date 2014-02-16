@@ -28,7 +28,7 @@ class AeronavesController < ApplicationController
 
     respond_to do |format|
       if @aeronafe.save
-        format.html { redirect_to @aeronafe, notice: 'Aeronave was successfully created.' }
+        format.html { redirect_to aeronaves_path, notice: 'Aeronave was successfully created.' }
         format.json { render action: 'show', status: :created, location: @aeronafe }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class AeronavesController < ApplicationController
   def update
     respond_to do |format|
       if @aeronafe.update(aeronafe_params)
-        format.html { redirect_to @aeronafe, notice: 'Aeronave was successfully updated.' }
+        format.html { redirect_to aeronaves_path, notice: 'Aeronave was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

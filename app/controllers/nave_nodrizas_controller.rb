@@ -28,7 +28,7 @@ class NaveNodrizasController < ApplicationController
 
     respond_to do |format|
       if @nave_nodriza.save
-        format.html { redirect_to @nave_nodriza, notice: 'Nave nodriza was successfully created.' }
+        format.html { redirect_to nave_nodrizas_path, notice: 'Nave nodriza was successfully created.' }
         format.json { render action: 'show', status: :created, location: @nave_nodriza }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class NaveNodrizasController < ApplicationController
   def update
     respond_to do |format|
       if @nave_nodriza.update(nave_nodriza_params)
-        format.html { redirect_to @nave_nodriza, notice: 'Nave nodriza was successfully updated.' }
+        format.html { redirect_to nave_nodrizas_path, notice: 'Nave nodriza was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

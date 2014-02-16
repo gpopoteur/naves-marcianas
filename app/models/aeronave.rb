@@ -10,4 +10,5 @@ class Aeronave < ActiveRecord::Base
 					foreign_key: "nave_destino"
 
 	has_many :movimientos
+	has_many :pasajeros
 end

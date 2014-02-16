@@ -1,4 +1,7 @@
 NavesMarcianas::Application.routes.draw do
+  
+  root 'nave_nodrizas#index'
+
   resources :revision_pasajeros
 
   resources :revisions

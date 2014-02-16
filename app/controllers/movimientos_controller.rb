@@ -4,7 +4,7 @@ class MovimientosController < ApplicationController
   # GET /movimientos
   # GET /movimientos.json
   def index
-    @movimientos = Movimiento.all
+    @movimientos = Movimiento.all.reverse
   end
 
   # GET /movimientos/1
@@ -26,9 +26,17 @@ class MovimientosController < ApplicationController
   def create
     @movimiento = Movimiento.new(movimiento_params)
 
+    if(@movimiento.tipo_movimiento == TipoMovimiento::entrada)
+      @movimiento.pasajero.aeronave_id = @movimiento.aeronave_id
+    else
+      @movimiento.pasajero.aeronave_id = nil
+    end
+
+    @movimiento.pasajero.save
+
     respond_to do |format|
       if @movimiento.save
-        format.html { redirect_to @movimiento, notice: 'Movimiento was successfully created.' }
+        format.html { redirect_to movimientos_path, notice: 'Movimiento was successfully created.' }
         format.json { render action: 'show', status: :created, location: @movimiento }
       else
         format.html { render action: 'new' }
@@ -42,7 +50,7 @@ class MovimientosController < ApplicationController
   def update
     respond_to do |format|
       if @movimiento.update(movimiento_params)
-        format.html { redirect_to @movimiento, notice: 'Movimiento was successfully updated.' }
+        format.html { redirect_to movimientos_path, notice: 'Movimiento was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

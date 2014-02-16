@@ -28,7 +28,7 @@ class PasajerosController < ApplicationController
 
     respond_to do |format|
       if @pasajero.save
-        format.html { redirect_to @pasajero, notice: 'Pasajero was successfully created.' }
+        format.html { redirect_to pasajeros_path, notice: 'Pasajero was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pasajero }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class PasajerosController < ApplicationController
   def update
     respond_to do |format|
       if @pasajero.update(pasajero_params)
-        format.html { redirect_to @pasajero, notice: 'Pasajero was successfully updated.' }
+        format.html { redirect_to pasajeros_path, notice: 'Pasajero was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

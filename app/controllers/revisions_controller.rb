@@ -26,9 +26,15 @@ class RevisionsController < ApplicationController
   def create
     @revision = Revision.new(revision_params)
 
+    aeronave = Aeronave.find(revision.aeronave_id)
+    aeronave.pasajeros.each do |pasajero|
+      
+    end
+
+
     respond_to do |format|
       if @revision.save
-        format.html { redirect_to @revision, notice: 'Revision was successfully created.' }
+        format.html { redirect_to revisions_path, notice: 'Revision was successfully created.' }
         format.json { render action: 'show', status: :created, location: @revision }
       else
         format.html { render action: 'new' }
@@ -42,7 +48,7 @@ class RevisionsController < ApplicationController
   def update
     respond_to do |format|
       if @revision.update(revision_params)
-        format.html { redirect_to @revision, notice: 'Revision was successfully updated.' }
+        format.html { redirect_to revisions_path, notice: 'Revision was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
