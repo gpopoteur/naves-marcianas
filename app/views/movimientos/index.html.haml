@@ -6,8 +6,7 @@
       %th Tipo movimiento
       %th Pasajero
       %th Aeronave
-      %th
-      %th
+      %th Date
       %th
   %tbody
     - @movimientos.each do |movimiento|
@@ -15,6 +14,7 @@
         %td= raw(movimiento.tipo_movimiento == TipoMovimiento::entrada ? "<span class='label label-success'>Entrada</span>" : "<span class='label label-danger'>Salida</span>")
         %td= movimiento.pasajero != nil ? movimiento.pasajero.nombre : ""
         %td= movimiento.aeronave != nil ? movimiento.aeronave.nombre : ""
+        %td= l(movimiento.created_at, :format => :short)
         %td
           = link_to 'Show', movimiento, class: "btn btn-info"
           = link_to 'Edit', edit_movimiento_path(movimiento)

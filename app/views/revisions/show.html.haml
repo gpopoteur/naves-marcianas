@@ -1,10 +1,29 @@
 %p#notice= notice
-%p
-  %strong Revisior:
-  = @revision.revisior
-%p
-  %strong Aeronave:
-  = @revision.aeronave_id
+
+%h2 Revision
+.row
+  %div.col-md-6
+    %span.titulo Revisior: 
+    %br
+    %span.texto= @revision.revisior
+  %div.col-md-6
+    %span.titulo Aeronave:
+    %br
+    %span.texto= @revision.aeronave.nombre
+
+
+.row
+  %div.col-md-12
+    %h3 Pasajeros
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Nombre
+      %tbody
+        - @revision.pasajeros.each do |pasajero|
+          %tr
+            %td= pasajero.nombre
+
 = link_to 'Edit', edit_revision_path(@revision)
 |
 \#{link_to 'Back', revisions_path}

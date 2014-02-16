@@ -26,11 +26,14 @@ class RevisionsController < ApplicationController
   def create
     @revision = Revision.new(revision_params)
 
-    aeronave = Aeronave.find(revision.aeronave_id)
+    aeronave = @revision.aeronave
     aeronave.pasajeros.each do |pasajero|
-      
-    end
+      rev_pasajero = RevisionPasajero.new
+      rev_pasajero.revision = @revision
+      rev_pasajero.pasajero = pasajero
 
+      rev_pasajero.save
+    end
 
     respond_to do |format|
       if @revision.save

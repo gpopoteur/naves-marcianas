@@ -4,14 +4,14 @@
     %tr
       %th Revisior
       %th Aeronave
-      %th
-      %th
+      %th Fecha
       %th
   %tbody
     - @revisions.each do |revision|
       %tr
         %td= revision.revisior
-        %td= revision.aeronave_id
+        %td= revision.aeronave.nombre
+        %td= l(revision.created_at, :format => :short)
         %td
           = link_to 'Show', revision
           = link_to 'Edit', edit_revision_path(revision)
