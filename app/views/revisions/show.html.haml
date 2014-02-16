@@ -1,20 +1,23 @@
-%p#notice= notice
-
-%h2 Revision
-.row
-  %div.col-md-6
-    %span.titulo Revisior: 
-    %br
-    %span.texto= @revision.revisior
-  %div.col-md-6
-    %span.titulo Aeronave:
-    %br
-    %span.texto= @revision.aeronave.nombre
-
+%h2 Revisi&oacute;n
 
 .row
-  %div.col-md-12
-    %h3 Pasajeros
+  %div.col-md-4
+    %p
+      %span.titulo Revisor: 
+      %br
+      %span.texto= @revision.revisior
+      %br
+      %span.titulo Aeronave:
+      %br
+      %span.texto= @revision.aeronave.nombre
+      %br
+      %span.titulo Fecha:
+      %br
+      %span.texto= l(@revision.created_at, :format => :short)
+  %div.col-md-8
+    %h3 
+      Pasajeros dentro de la aeronave
+      %b= @revision.aeronave.nombre
     %table.table.table-striped
       %thead
         %tr
@@ -24,6 +27,3 @@
           %tr
             %td= pasajero.nombre
 
-= link_to 'Edit', edit_revision_path(@revision)
-|
-\#{link_to 'Back', revisions_path}

@@ -37,7 +37,7 @@ class RevisionsController < ApplicationController
 
     respond_to do |format|
       if @revision.save
-        format.html { redirect_to revisions_path, notice: 'Revision was successfully created.' }
+        format.html { redirect_to @revision, notice: 'Revision was successfully created.' }
         format.json { render action: 'show', status: :created, location: @revision }
       else
         format.html { render action: 'new' }
