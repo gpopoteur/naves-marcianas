@@ -24,4 +24,4 @@
     %br/
     = f.collection_select :nave_destino, NaveNodriza.all, :id, :nombre, {}, {:class=>'form-control'}
   .actions
-    = f.submit 'Create', class: 'btn btn-primary'
+    = f.submit  ( @aeronafe.id != nil ? 'Edit' : 'Create' ), class: 'btn btn-primary'

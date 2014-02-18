@@ -15,8 +15,8 @@
           %tr
             %td= aeronafe.nombre
             %td= aeronafe.max_marcianos
-            %td= aeronafe.origen.nombre
-            %td= aeronafe.destino.nombre
+            %td= aeronafe.origen != nil ? aeronafe.origen.nombre : ''
+            %td= aeronafe.destino != nil ? aeronafe.destino.nombre : ''
             %td= raw(aeronafe.nave_origen == aeronafe.nave_destino ? "<span class='label label-success'>Turista</span>" : "<span class='label label-default'>Normal</span>")
             %td
               = link_to 'Show', aeronafe, class: "btn btn-info"

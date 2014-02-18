@@ -13,8 +13,8 @@
         %td= revision.aeronave.nombre
         %td= l(revision.created_at, :format => :short)
         %td
-          = link_to 'Show', revision
-          = link_to 'Edit', edit_revision_path(revision)
-          = link_to 'Destroy', revision, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Show', revision, class: "btn btn-info"
+          = link_to 'Edit', edit_revision_path(revision), class: "btn btn-warning"
+          = link_to 'Destroy', revision, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
 %br/
 = link_to 'New Revision', new_revision_path, class: 'btn btn-primary'

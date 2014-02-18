@@ -20,4 +20,4 @@
     %br/
     = f.collection_select :aeronave_id, Aeronave.all, :id, :nombre, {}, {:class=>'form-control'}
   .actions
-    = f.submit 'Create', class: 'btn btn-primary'
+    = f.submit (@movimiento.id != nil ? 'Edit' : 'Create'), class: 'btn btn-primary'

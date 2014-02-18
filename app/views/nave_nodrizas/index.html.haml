@@ -7,10 +7,10 @@
   %tbody
     - @nave_nodrizas.each do |nave_nodriza|
       %tr
-        %td= nave_nodriza.nombre
+        %td= nave_nodriza != nil ? nave_nodriza.nombre : ""
         %td
-          = link_to 'Show', nave_nodriza
-          = link_to 'Edit', edit_nave_nodriza_path(nave_nodriza)
-          = link_to 'Destroy', nave_nodriza, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Show', nave_nodriza, class: "btn btn-info"
+          = link_to 'Edit', edit_nave_nodriza_path(nave_nodriza), class: "btn btn-warning"
+          = link_to 'Destroy', nave_nodriza, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
 %br/
 = link_to 'New Nave Nodriza', new_nave_nodriza_path, class: 'btn btn-primary'

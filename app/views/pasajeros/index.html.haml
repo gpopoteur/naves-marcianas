@@ -7,10 +7,10 @@
   %tbody
     - @pasajeros.each do |pasajero|
       %tr
-        %td= pasajero.nombre
+        %td= pasajero != nil ? pasajero.nombre : ""
         %td
-          = link_to 'Show', pasajero
-          = link_to 'Edit', edit_pasajero_path(pasajero)
-          = link_to 'Destroy', pasajero, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Show', pasajero, class: 'btn btn-info'
+          = link_to 'Edit', edit_pasajero_path(pasajero), class: "btn btn-warning"
+          = link_to 'Destroy', pasajero, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 %br/
 = link_to 'New Pasajero', new_pasajero_path, class: 'btn btn-primary'
