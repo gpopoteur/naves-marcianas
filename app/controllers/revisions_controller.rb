@@ -26,6 +26,13 @@ class RevisionsController < ApplicationController
   def create
     @revision = Revision.new(revision_params)
 
+    revision_pasada = Revision.where(:aeronave_id => @revision.aeronave.id).last
+
+    if revision_pasada != nil && revision_pasada.created_at.to_date == Date.today
+      flash[:error] = 'Ya existe una revision para esa nave el dia de hoy.'
+      return redirect_to revisions_path
+    end
+
     aeronave = @revision.aeronave
     aeronave.pasajeros.each do |pasajero|
       rev_pasajero = RevisionPasajero.new
