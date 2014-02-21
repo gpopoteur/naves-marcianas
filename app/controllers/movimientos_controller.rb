@@ -26,7 +26,7 @@ class MovimientosController < ApplicationController
   def create
     @movimiento = Movimiento.new(movimiento_params)
 
-    if @movimiento.aeronave.max_marcianos > @movimiento.aeronave.movimientos.length
+    if @movimiento.aeronave.max_marcianos < @movimiento.aeronave.movimientos.length
       flash[:error] = 'La Aeronave esta llena'
       return redirect_to movimientos_path
     end
