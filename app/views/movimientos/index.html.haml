@@ -17,7 +17,6 @@
         %td= l(movimiento.created_at, :format => :short)
         %td
           = link_to 'Show', movimiento, class: "btn btn-info"
-          = link_to 'Edit', edit_movimiento_path(movimiento), class: "btn btn-warning"
           = link_to 'Destroy', movimiento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
 %br/
 = link_to 'New Movimiento', new_movimiento_path, class: 'btn btn-primary'
