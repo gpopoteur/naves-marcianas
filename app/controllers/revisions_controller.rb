@@ -17,10 +17,6 @@ class RevisionsController < ApplicationController
     @revision = Revision.new
   end
 
-  # GET /revisions/1/edit
-  def edit
-  end
-
   # POST /revisions
   # POST /revisions.json
   def create
@@ -34,48 +30,31 @@ class RevisionsController < ApplicationController
     end
 
     aeronave = @revision.aeronave
-    aeronave.pasajeros.each do |pasajero|
-      rev_pasajero = RevisionPasajero.new
-      rev_pasajero.revision = @revision
-      rev_pasajero.pasajero = pasajero
 
-      rev_pasajero.save
-    end
+    # Do all the bulk insert inside of an ActiveRecord transaction so 
+    # the the database performs all of the inserts in a single transaction
+    ActiveRecord::Base.transaction do
+      aeronave.pasajeros.each do |pasajero|
+        rev_pasajero = RevisionPasajero.new
+        rev_pasajero.revision = @revision
+        rev_pasajero.pasajero = pasajero
 
-    respond_to do |format|
-      if @revision.save
-        format.html { redirect_to @revision, notice: 'Revision was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @revision }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @revision.errors, status: :unprocessable_entity }
+        rev_pasajero.save
       end
-    end
-  end
 
-  # PATCH/PUT /revisions/1
-  # PATCH/PUT /revisions/1.json
-  def update
-    respond_to do |format|
-      if @revision.update(revision_params)
-        format.html { redirect_to revisions_path, notice: 'Revision was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @revision.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @revision.save
+          format.html { redirect_to @revision, notice: 'Revision was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @revision }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @revision.errors, status: :unprocessable_entity }
+        end
       end
-    end
-  end
 
-  # DELETE /revisions/1
-  # DELETE /revisions/1.json
-  def destroy
-    @revision.destroy
-    respond_to do |format|
-      format.html { redirect_to revisions_url }
-      format.json { head :no_content }
-    end
-  end
+    end # DB Transaction end
+
+  end # method end
 
   private
     # Use callbacks to share common setup or constraints between actions.
