@@ -26,6 +26,11 @@ class MovimientosController < ApplicationController
   def create
     @movimiento = Movimiento.new(movimiento_params)
 
+    if @movimiento.aeronave.max_marcianos < @movimiento.aeronave.movimientos.length
+      flash[:error] = 'La Aeronave esta llena'
+      return redirect_to movimientos_path
+    end
+
     if(@movimiento.tipo_movimiento == TipoMovimiento::entrada)
       @movimiento.pasajero.aeronave_id = @movimiento.aeronave_id
     else
@@ -35,7 +40,7 @@ class MovimientosController < ApplicationController
     @movimiento.pasajero.save
 
     respond_to do |format|
-      if @movimiento.save
+      if @movimiento.save 
         format.html { redirect_to movimientos_path, notice: 'Movimiento was successfully created.' }
         format.json { render action: 'show', status: :created, location: @movimiento }
       else
